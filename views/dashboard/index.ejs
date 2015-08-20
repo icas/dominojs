@@ -1,1 +1,18 @@
-aqui
+<h1>Dashboard</h1>
+<h3><%= user.name%></h3>
+<img src="<%= user.imageURL%>" alt="<%= user.name%>">
+<a href="/auth/logout">Logout</a>
+
+<ul>
+  <% _.each(players, function(player){ %>
+    <%- console.log(player) %>
+    <%- console.log(user) %>
+    <%- console.log(user === user) %>
+    <% if (player.uid != user.uid){ %>
+      <li>
+        <img src="<%= player.imageURL%>" alt="<%= player.name%>">
+        <%= player.name %>
+      </li>
+    <% } %>
+  <% })%>
+</ul>

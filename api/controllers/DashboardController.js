@@ -8,7 +8,12 @@
 module.exports = {
 	index: function(req, res){
     console.log("+ DASHBOARD.INDEX");
-    return res.view();
+    User.find().exec(function (err, users){
+      return res.view({
+        user: req.user,
+        players: users
+      });
+    });
   }
 };
 
